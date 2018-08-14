@@ -1,0 +1,73 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   classpath:org/springframework/beans/factory/xml/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context 
+   classpath:org/springframework/context/config/spring-context-3.0.xsd     
+   http://www.springframework.org/schema/mvc
+   classpath:org/springframework/web/servlet/config/spring-mvc-3.0.xsd
+   http://cxf.apache.org/jaxws  
+   http://cxf.apache.org/schemas/jaxws.xsd
+   http://cxf.apache.org/jaxrs  http://cxf.apache.org/schemas/jaxrs.xsd
+   http://cxf.apache.org/core  http://cxf.apache.org/schemas/core.xsd">
+ 
+<!-- 	cxf相关配置 -->
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	
+	 <!--  
+	<bean id="updateproductlogicbean" class="com.learn.webserviceimpl.WSUpdateProductLogicServiceImpl"></bean>
+    
+    <jaxws:server id="updateproductlogicservice" serviceClass="com.learn.webservice.WSUpdateProductLogicService" address="/wsUpdateProductLogicService">
+			<jaxws:serviceBean>
+				<ref bean="updateproductlogicbean"/>
+			</jaxws:serviceBean>
+	</jaxws:server>
+	
+    webservice配置
+    <bean id="wsequipmentbean" class="com.learn.webserviceimpl.WSEquipmentServiceImpl"></bean>
+    
+    <jaxws:server id="equipmentservice" serviceClass="com.learn.webservice.WSEquipmentService" address="/wsEquipmentService">
+			<jaxws:serviceBean>
+				<ref bean="wsequipmentbean"/>
+			</jaxws:serviceBean>
+	</jaxws:server>
+	
+	
+	webservice配置
+    <bean id="wsPrepareMaterialbean"  class="com.learn.webserviceimpl.WSPrepareMaterialServiceImpl"></bean>
+	<jaxws:server id="wsPrepareMaterial" serviceClass="com.learn.webservice.WSPrepareMaterialService" address="/wsPrepareMaterialaddress">
+			<jaxws:serviceBean>
+				<ref bean="wsPrepareMaterialbean"/>
+			</jaxws:serviceBean>
+	</jaxws:server>	
+	
+	
+首盘，补料 
+	<bean id="wsUpdateMaterialbean"  class="com.learn.webserviceimpl.WSUpdateMaterialServiceImpl"></bean>
+	<jaxws:server id="wsUpdateMaterial" serviceClass="com.learn.webservice.WSUpdateMaterialService" address="/wsUpdateMaterialaddress">
+			<jaxws:serviceBean>
+				<ref bean="wsUpdateMaterialbean"/>
+			</jaxws:serviceBean>
+	</jaxws:server>	
+	
+	判断连接的状态，并更改
+	<bean id="wsUpdateMaterialConditionbean"  class="com.learn.webserviceimpl.WSUpdateMaterialConditionServiceImpl"></bean>
+	<jaxws:server id="wsUpdateMaterialCondition" serviceClass="com.learn.webservice.WSUpdateMaterialConditionService" address="/wsUpdateMaterialConditionaddress">
+			<jaxws:serviceBean>
+				<ref bean="wsUpdateMaterialConditionbean"/>
+			</jaxws:serviceBean>
+	</jaxws:server>	
+	
+	
+	
+	<bean id="wsLackMaterialbean"  class="com.learn.webserviceimpl.WSLackMaterialServiceImpl"></bean>
+	<jaxws:server id="wsLackMaterial" serviceClass="com.learn.webservice.WSLackMaterialService" address="/wsLackMaterialaddress">
+			<jaxws:serviceBean>
+				<ref bean="wsLackMaterialbean"/>
+			</jaxws:serviceBean>
+	</jaxws:server>	 -->
+</beans>

@@ -1,0 +1,31 @@
+.top_font{
+    font-family: "Eras Bold ITC";
+    font-size: 36px;
+    color: #f77000;
+}
+.title-font{
+    font-family: "Î¢ÈíÑÅºÚ";
+    font-size: 60px;
+    color: #EEEE00;
+}
+.floor_font{
+	font-family: "Eras Bold ITC";
+    font-size: 36px;
+    color: #f77000;
+}
+.button_font{
+    font-family: "Î¢ÈíÑÅºÚ";
+    font-size: 36px;
+    color:white;
+}
+.login_font{
+    font-family: "Î¢ÈíÑÅºÚ";
+    font-size: 26px;
+}
+
+.modal-font{
+	font-family: "Eras Bold ITC";
+    font-size: 36px;
+    color: #f77000;
+	
+}

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phicomm.equipment.dao.EquipmentDao">
+
+ <select id="updateEquipmentInfo" parameterType="com.phicomm.equipment.pojo.FindEquipmentInfo"  >
+     update  equipment_info set name=#{equipment.name},status=#{equipment.status},line=#{equipment.line},floorid=#{equipment.floorid},time=#{equipment.time},userid=#{equipment.userid} where id=#{equipment.id}
+  </select>
+
+
+  <select id="findEquipmentInfoCount" parameterType="String" resultType="int"> 
+      select count(1) from equipment_info where id=#{id}
+   </select>
+
+  <select id="addEquipmentInfo" parameterType="com.phicomm.equipment.pojo.FindEquipmentInfo"  >
+     insert into equipment_info( id, name, status,line,floorid,time,userid) values(#{equipment.id},#{equipment.name},#{equipment.status},#{equipment.line},#{equipment.floorid},#{equipment.time},#{equipment.userid})
+  </select>
+   
+   <select id="addEquipmentHistory" parameterType="com.phicomm.equipment.pojo.FindEquipmentHistoryInfo"  >
+     insert into equipment_history( id, name, line,floorid,remarks,time,userid) values(#{equipmenthistory.id},#{equipmenthistory.name},#{equipmenthistory.line},#{equipmenthistory.floorid},#{equipmenthistory.remarks},#{equipmenthistory.time},#{equipmenthistory.userid})
+   </select>
+   
+   <select id="findEquipmentInfo" parameterType="com.phicomm.equipment.pojo.FindEquipmentHistoryInfo" resultType="com.phicomm.equipment.pojo.Equipment_info"> 
+      select *from equipment_info
+   </select>
+
+     <!--查询信息  -->
+	<select id="findEquipmentAll" parameterType="com.phicomm.equipment.pojo.SelectInfo" resultType="com.phicomm.equipment.pojo.Equipment_info">
+	   select *from equipment_info
+	   <where>
+	       <include refid="whereClause"></include>
+	   </where>
+	</select>
+	<sql id="whereClause">
+	  <if test="equimentParaments !=null">
+	      <if test="equimentParaments.id !=null and equimentParaments.id !='' ">
+	          and id=#{equimentParaments.id}
+	      </if>
+	      <if test="equimentParaments.name !=null and equimentParaments.name !=''">
+	          and name =#{equimentParaments.name}
+	      </if>
+	      
+	      <if test="equimentParaments.line !=null and equimentParaments.line !=''">
+	          and line =#{equimentParaments.line}
+	      </if>
+	      <if test="equimentParaments.floorid !=null and equimentParaments.floorid !=''">
+	          and floorid =#{equimentParaments.floorid}
+	      </if>
+	      
+	      <if test="equimentParaments.begintime !=null and equimentParaments.begintime !=''">
+	          and time >=#{equimentParaments.begintime}
+	      </if>
+	      <if test="equimentParaments.endtime !=null and equimentParaments.endtime !=''">
+	          and time &lt;= #{equimentParaments.endtime}
+	      </if>
+	  </if>
+	
+	</sql>
+	
+	
+<!--查询详细信息  -->
+<select id="findEquipmentHistory" parameterType="com.phicomm.equipment.pojo.EquiementHistoryParameter" resultType="com.phicomm.equipment.pojo.Equipment_history"> 
+    select *from equipment_history 
+ <where>
+    <include refid="wherehistory"></include>
+ </where>
+</select>
+ <sql id="wherehistory">
+   <if test="id !=null and id !=''">
+     and id=#{id}
+   </if>
+   <if test="begintime !=null and begintime !=''">
+       and time>=#{begintime}
+   </if>
+   <if test="endtime !=null and endtime !=''">
+      and time &lt;= #{endtime}
+   </if>
+ </sql>
+ 
+ 
+ <!--线体  -->
+ <select id="findline" parameterType="String" resultType="String">
+     select line from equipemt_line
+ </select>
+  
+ <select id="findlinecount" parameterType="String" resultType="int">
+     select count(1) from equipemt_line where line=#{line}
+ </select>
+ <select id="addline" parameterType="String" >
+     insert into equipemt_line values(#{line})
+ </select>
+ 
+ <!-- 楼层 -->
+ <select id="findFloor" parameterType="String" resultType="String">
+    select floorid from equitpment_floor
+ </select>
+ <select id="finFloorcount" parameterType="String" resultType="int">
+     select count(1) from equitpment_floor where floorid=#{floorid}
+ </select>
+ <select id="addFloor" parameterType="String">
+   insert into equitpment_floor values(#{floorid})
+ </select>
+</mapper>
